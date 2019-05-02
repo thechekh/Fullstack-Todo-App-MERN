@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './style.css';
 import {addTask} from '../../action_creators'
+import {addTodos} from '../../action_creators'
 import {connect} from 'react-redux'
 import addTaskIco from './ico-add.svg'
 
@@ -9,17 +10,13 @@ class AddTask extends Component {
     state = {
         text: ''
     }
-componentDidUpdate() {
 
-  console.log(this.props);
-  
-}
 
 handleClick = ev => {
     ev.preventDefault()
     if (this.state.text) {
-        const {addTask} = this.props
-        addTask(this.state)
+    
+        this.props.addTodos(this.state.text)
         this.setState({
             text: ''
         })
@@ -58,4 +55,4 @@ handleClick = ev => {
     }
 }
 
-export default connect(null, { addTask })(AddTask);
+export default connect(null, { addTodos })(AddTask);

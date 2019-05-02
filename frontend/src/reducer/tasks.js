@@ -1,17 +1,14 @@
-import { tasks } from '../fixtures'
+
 import { DELETE_TASK, UPDATE_TASK, ADD_TASK, UPDATE_TASK_STATUS, GET_TASKS } from '../constants'
 
-export default (state = tasks, action) => {
+
+
+export default (state=[], action) => {
     const { type, payload } = action
     switch (type) {
-
         case GET_TASKS:
-        return {
-            tasks:payload,
-        }
-
-
-
+        return payload
+        
 
         case DELETE_TASK:
             return state.filter(task => task.id !== payload.id)
@@ -26,14 +23,18 @@ export default (state = tasks, action) => {
             return updatedTasks
 
         case ADD_TASK:
-            const lastId = state[state.length - 1].id + 1
+      
+          // constnewTasks={...state,...payload}
+          const lastId = state[state.length - 1].id + 1
+          const newTasks = state.concat({
+              id: lastId,
+              text: payload.text,
+              isCompleted: false
+          })
 
-            const newTasks = state.concat({
-                id: lastId,
-                task: payload.text.text,
-                isCompleted: false
-            })
             return newTasks
+            
+      
 
         case UPDATE_TASK_STATUS:
             const updatedStatusTasks = state.map(task => {

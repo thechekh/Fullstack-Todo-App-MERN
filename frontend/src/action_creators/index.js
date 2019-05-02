@@ -1,12 +1,55 @@
 import { DELETE_TASK, UPDATE_TASK, ADD_TASK, UPDATE_TASK_STATUS, SEARCH_TASK, GET_TASKS } from '../constants'
 
 export function getTodos() {
-    const options = { method: "GET" }
+
+    return function action(dispatch) {
+
+        const options = { method: "GET" }
+
+
+        fetch(`http://localhost:4000/`, options).then(response =>
+            response.json().then(data => dispatch(
+                {
+                    type: GET_TASKS,
+                    payload: data,
+                })
+            ))
+    }
+}
+export function addTodos(text) {
+
+    return function action(dispatch) {
+
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ text })
+        }
+
+        fetch(`http://localhost:4000/`, options).
+            then(response => response.json().then(data => dispatch(
+                {
+                    type: ADD_TASK,
+                    payload: data,
+                })
+            ))
+
+    }
+}
 
 
 
-return fetch(`http://localhost:4000/`, options).then(  
-        function(response) {  
+/* response.json().then((response)=>console.log(response) */
+
+/*   .then(data => dispatch(
+      {
+          type: ADD_TASK,
+          payload: data,
+      })
+  )) */
+
+
+/* function(response) {  
       if (response.status !== 200) {  
         console.log('err. status code: ' +  
           response.status);  
@@ -16,9 +59,7 @@ return fetch(`http://localhost:4000/`, options).then(
         console.log(data); 
         return data; 
       });  
-    }  
-  )   
-}
+    }   */
 
 export function deleteTask(id) {
     return {

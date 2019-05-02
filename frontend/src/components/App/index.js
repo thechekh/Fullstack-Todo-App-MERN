@@ -8,14 +8,9 @@ import { getTodos } from '../../action_creators'
 
 
 class App extends Component {
- componentDidMount() {
-  const tasks = getTodos();
 
-  this.setState({
-    tasks: tasks,
-  })
- }
  
+
 
   render() {
 

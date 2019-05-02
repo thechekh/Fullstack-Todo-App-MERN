@@ -4,6 +4,6 @@ import searchReducer from './search'
 
 
 export default combineReducers({
-    tasks: taskReducer,
-    query: searchReducer
+    tasks:taskReducer,
+    query: searchReducer,
 })

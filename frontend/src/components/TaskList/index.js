@@ -2,16 +2,19 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux'
 import './style.css';
 import Task from "../Task/index";
+import { getTodos } from '../../action_creators'
 
 class TaskList extends Component {
 
- 
-    
+
+ componentDidMount() {
+    this.props.getTodos()
+} 
   render() {
       const {tasks} = this.props
 
       const taskComponents = tasks.map(task =>
-          <Task key={task.id} task={task}>{task.task}</Task>
+          <Task key={task.id} task={task}>{task.text}</Task>
       )
 
       return  <div className="task-list">
@@ -40,4 +43,4 @@ let mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(TaskList);
+export default connect(mapStateToProps,{getTodos})(TaskList);
