@@ -1,0 +1,41 @@
+.search {
+  background: #F9F9F9;
+}
+
+.search__form {
+  position: relative;
+}
+
+.search__ico {
+  position: absolute;
+  top: 25px;
+  left: 6%;
+}
+
+@media only screen and (max-width: 400px) {
+  .search__ico {
+    left: 8%;
+  }
+}
+
+.search__input {
+  height: 40px;
+  border-radius: 40px;
+  border:solid 1px #FFF;
+  margin: 1em 5%;
+  width: 90%;
+  outline: none;
+  padding-left: 2.5em;
+  font-size: 1em;
+  font-family: 'Segoe WP N', sans-serif;
+  color: #959595;
+  -webkit-appearance: none;
+}
+
+.search__input::placeholder {
+  color: #C0C0C0;
+}
+
+.search__input::-webkit-search-cancel-button {
+  margin-right: 1em;
+}

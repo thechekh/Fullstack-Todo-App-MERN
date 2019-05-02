@@ -1,0 +1,35 @@
+.add-task {
+  margin: 1em 5%;
+  border: 1px solid #0BD1FF;
+  border-radius: 3em;
+  position: relative;
+}
+
+.add-task__input {
+  color: #0BD1FF;
+  border:solid 1px #FFF;
+  width: 90%;
+  border-radius: 1em;
+  outline: none;
+  margin-left: 1.5em;
+  padding: 0.8em 1em 0.8em 0;
+  font-size: 1em;
+  font-family: 'Segoe WP N', sans-serif;
+}
+
+
+.add-task__input::placeholder {
+  color: #0BD1FF;
+}
+
+.add-task__ico {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.add-task__ico:hover {
+  transform: scale(1.2)
+}

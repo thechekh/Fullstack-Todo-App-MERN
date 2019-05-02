@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46 (44423) - http://www.bohemiancoding.com/sketch -->
+    <title>circle_close_delete_outline_stroke</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-719.000000, -456.000000)" fill="#AFAFAF">
+            <path d="M730,478 C736.075133,478 741,473.075133 741,467 C741,460.924867 736.075133,456 730,456 C723.924867,456 719,460.924867 719,467 C719,473.075133 723.924867,478 730,478 L730,478 Z M730,477 C724.477152,477 720,472.522848 720,467 C720,461.477152 724.477152,457 730,457 C735.522848,457 740,461.477152 740,467 C740,472.522848 735.522848,477 730,477 Z M725.757359,471.949747 L730,467.707107 L734.242641,471.949747 L734.949747,471.242641 L730.707107,467 L734.949747,462.757359 L734.242641,462.050253 L730,466.292893 L725.757359,462.050253 L725.050253,462.757359 L729.292893,467 L725.050253,471.242641 L725.757359,471.949747 Z" id="circle_close_delete_outline_stroke"></path>
+        </g>
+    </g>
+</svg>

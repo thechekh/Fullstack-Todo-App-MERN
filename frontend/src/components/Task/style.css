@@ -1,0 +1,63 @@
+.task {
+  margin: 1em 5%;
+  border-radius: 3em;
+  position: relative;
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.50);
+}
+
+.task__text {
+  margin-left: 3em;
+  padding: 0.851em 1em 0.9em 0;
+  color: #959595;
+  line-height: 1.4;
+  cursor: default;
+}
+
+.task-delete__ico {
+  position: absolute;
+  top:14px;
+  right: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.task-delete__ico:hover {
+  transform: scale(1.2)
+}
+
+.task-edit__ico {
+  position: absolute;
+  top: 14px;
+  right: 44px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.task-edit__ico:hover {
+  transform: scale(1.2)
+}
+
+.task__input {
+  color: #959595;
+  border:solid 1px #FFF;
+  line-height: 1.4;
+  width: 90%;
+  border-radius: 1em;
+  outline: none;
+  margin-left: calc(3em - 1px);
+  padding: 0.8em 1em 0.8em 0;
+  font-size: 1em;
+  font-family: 'Segoe WP N', sans-serif;
+}
+
+.task-status__ico {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.task-status__ico:hover {
+  transform: scale(1.2)
+}
