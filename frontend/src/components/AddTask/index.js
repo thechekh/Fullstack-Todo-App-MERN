@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
-import {addTask} from '../../AC'
+import {addTask} from '../../action_creators'
 import {connect} from 'react-redux'
 import addTaskIco from './ico-add.svg'
 
@@ -15,15 +15,16 @@ componentDidUpdate() {
   
 }
 
-     handleClick( ev){
-        ev.preventDefault()
-        if (this.state.text) {
-             this.props.addTask(this.state)
-            this.setState({
-                text: ''
-            })
-        }
+handleClick = ev => {
+    ev.preventDefault()
+    if (this.state.text) {
+        const {addTask} = this.props
+        addTask(this.state)
+        this.setState({
+            text: ''
+        })
     }
+}
 
     handleChange = ev => {
         this.setState({
@@ -38,7 +39,7 @@ componentDidUpdate() {
             this.handleClick(ev)
         }
     }
-
+ 
     render() {
         return (
             <div className="add-task">

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {deleteTask, updateTask, updateTaskStatus} from '../../AC'
+import {deleteTask, updateTask, updateTaskStatus} from '../../action_creators'
 import {connect} from 'react-redux'
 import './style.css';
 import icoEdit from './ico-edit.svg'
@@ -94,11 +94,11 @@ class Task extends Component {
             return (
                 <div className="task_wrapper">
                     {this.getTaskStatus()}
-                    <img src={icoEdit}
+                   {/*  <img src={icoEdit}
                          onClick={this.editTask}
                          className="task-edit__ico"
                          alt="edit"
-                    />
+                    /> */}
                     <img src={icoDelete}
                          onClick={this.handleDelete}
                          className="task-delete__ico"
