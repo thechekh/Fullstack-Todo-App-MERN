@@ -1,5 +1,20 @@
-import {DELETE_TASK, UPDATE_TASK, ADD_TASK, UPDATE_TASK_STATUS, SEARCH_TASK} from '../constants'
+import { DELETE_TASK, UPDATE_TASK, ADD_TASK, UPDATE_TASK_STATUS, SEARCH_TASK, GET_TASKS } from '../constants'
+export const getTodos = function () {
+    return async function (dispatch) {
+        const options = {method: "GET"}
 
+        try {
+            const res = await fetch(`http://localhost:4000/`, options);
+            return dispatch({
+                type: GET_TASKS,
+                payload: res.data
+            });
+        }
+        catch (err) {
+            return console.log(err);
+        }
+    }
+}
 export function deleteTask(id) {
     return {
         type: DELETE_TASK,
