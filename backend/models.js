@@ -4,7 +4,7 @@ Schema=mongoose.Schema;
 
 const todoSchema = new Schema({
     text: { type: String, required: true },
-    isCompleted: { type: Boolean, default: false },
+   isCompleted:{type:Boolean,required:true},
     createdAt: { type: Date, default: Date.now }
 })
 

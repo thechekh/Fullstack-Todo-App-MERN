@@ -3,14 +3,16 @@ import { DELETE_TASK, UPDATE_TASK, ADD_TASK, UPDATE_TASK_STATUS, GET_TASKS } fro
 
 export default (state = tasks, action) => {
     const { type, payload } = action
-
     switch (type) {
 
         case GET_TASKS:
         return {
-            ...state,
-            todos: action.payload
+            tasks:payload,
         }
+
+
+
+
         case DELETE_TASK:
             return state.filter(task => task.id !== payload.id)
         case UPDATE_TASK:

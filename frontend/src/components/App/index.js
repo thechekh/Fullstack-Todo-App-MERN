@@ -4,21 +4,28 @@ import './style.css';
 import Search from "../Search/index";
 import AddTask from "../AddTask/index"
 import TaskList from "../TaskList/index"
+import { getTodos } from '../../action_creators'
 
 
 class App extends Component {
+ componentDidMount() {
+  const tasks = getTodos();
 
-  state = {
-      tasks: this.props.tasks
-  }
+  this.setState({
+    tasks: tasks,
+  })
+ }
+ 
 
   render() {
+
     return (
+
       <div>
-          <Header />
-          <Search />
-          <AddTask />
-          <TaskList tasks={this.state.tasks} />
+        <Header />
+        <Search />
+        <AddTask />
+        <TaskList />
       </div>
     );
   }

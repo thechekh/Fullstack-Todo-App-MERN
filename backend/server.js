@@ -14,7 +14,7 @@ app.use(bodyParser.json())
 app.use(cors())
 
 
-app.use('/api/todos', todoRoutes)
+app.use('/', todoRoutes)
 
 
 app.listen(port, () => console.log('Server is running on port:', port))
