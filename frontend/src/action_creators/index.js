@@ -58,7 +58,7 @@ export function deleteTodos(id) {
 }
 
 export function toggleTodos(id) {
-console.log(id);
+
     return function action(dispatch) {
 
         const options = {
