@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { deleteTask, updateTask, updateTaskStatus } from '../../action_creators'
+import { deleteTodos } from '../../action_creators'
 import { connect } from 'react-redux'
 import './style.css';
 import icoCompleted from './ico-complited.svg'
@@ -19,8 +20,10 @@ class Task extends Component {
 
     handleDelete = ev => {
         ev.preventDefault()
-        const { task, deleteTask } = this.props
-        deleteTask(task.id)
+        /*  const { task, deleteTask } = this.props */
+        const { task } = this.props
+        console.log(task._id);
+        this.props.deleteTodos(task._id)
     }
 
 
@@ -69,20 +72,20 @@ class Task extends Component {
     render() {
         return (
             <div className="task">
-                     
-            <div className="task_wrapper">
-                {this.getTaskStatus()}
 
-                <img src={icoDelete}
-                    onClick={this.handleDelete}
-                    className="task-delete__ico"
-                    alt="delete"
-                />
-                <div className="task__text">{this.state.text}</div>
-            </div>
+                <div className="task_wrapper">
+                    {this.getTaskStatus()}
+
+                    <img src={icoDelete}
+                        onClick={this.handleDelete}
+                        className="task-delete__ico"
+                        alt="delete"
+                    />
+                    <div className="task__text">{this.state.text}</div>
+                </div>
             </div>
         )
     }
 }
 
-export default connect(null, { deleteTask, updateTask, updateTaskStatus })(Task);
+export default connect(null, { /* deleteTask */ deleteTodos, updateTask, updateTaskStatus })(Task);

@@ -11,7 +11,9 @@ export default (state=[], action) => {
         
 
         case DELETE_TASK:
-            return state.filter(task => task.id !== payload.id)
+        console.log("redsuserpayid",payload.id);
+   
+            return state.filter(task => task._id !== payload.id)
         case UPDATE_TASK:
             const updatedTasks = state.map(task => {
 
@@ -25,12 +27,12 @@ export default (state=[], action) => {
         case ADD_TASK:
       
           // constnewTasks={...state,...payload}
-          const lastId = state[state.length - 1].id + 1
           const newTasks = state.concat({
-              id: lastId,
+              _id: payload._id,
               text: payload.text,
-              isCompleted: false
+              createdAt:payload.createdAt,
           })
+          console.log(newTasks);
 
             return newTasks
             

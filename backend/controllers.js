@@ -1,7 +1,7 @@
 const Todo = require('./models')
 
 exports.create = async (req,res,next) => {
-    console.log("REQ BODY",req.body);
+  
     const  {text}  = req.body;
 
     try {
@@ -25,10 +25,13 @@ exports.getAll = async (req, res, next) => {
 }
 
 exports.delete = async (req, res, next) => {
+
+
     try {
-        const todo = await Todo.findById(req.params.todoId)
+        const todo = await Todo.findById(req.params.id)
         await todo.remove()
-        return res.json({ todoId: req.params.todoId })
+     
+        return res.json({ id: req.params.id })
     } catch (err) {
         console.log(err)
     }

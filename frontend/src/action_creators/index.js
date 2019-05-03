@@ -36,6 +36,26 @@ export function addTodos(text) {
 
     }
 }
+export function deleteTodos(id) {
+
+    return function action(dispatch) {
+
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+          
+        }
+
+        fetch(`http://localhost:4000/${id}`, options).
+            then(response => response.json().then(data => dispatch(
+                {
+                    type:DELETE_TASK,
+                    payload: data,
+                })
+            ))
+
+    }
+}
 
 
 
