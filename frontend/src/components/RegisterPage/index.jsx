@@ -10,9 +10,14 @@ class LoginPage extends React.Component {
 
         return (
             <div style={{marginLeft:'100px'}}>
-                <h2>This is a HomePage</h2>
-
-                <ul>Navigation
+                <h2>Register Page</h2>
+<form action="">
+<h6>Login</h6>
+<input type="text"/>
+<h6>password</h6>
+<input type="password"/>
+</form>
+<ul>Navigation
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -24,6 +29,8 @@ class LoginPage extends React.Component {
           </li>
         </ul>
             </div>
+
+            
         )
     }
 }

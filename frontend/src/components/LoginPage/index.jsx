@@ -17,6 +17,17 @@ class LoginPage extends React.Component {
 <h6>password</h6>
 <input type="password"/>
 </form>
+<ul>Navigation
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/register">Register</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </ul>
             </div>
         )
     }
