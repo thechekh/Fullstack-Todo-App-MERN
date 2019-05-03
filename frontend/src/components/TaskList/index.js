@@ -24,6 +24,7 @@ class TaskList extends Component {
   }
 }
 
+
 let mapStateToProps = state => {
     if (!state.query) {
         return {
@@ -32,12 +33,11 @@ let mapStateToProps = state => {
     }
 
     let foundTasks = state.tasks.filter(task => {
-        if (task.task.indexOf(state.query) !== -1) {
+        if (task.text.indexOf(state.query) !== -1) {
             return task
         }
         return false
     })
-
     return {
         tasks: foundTasks
     }

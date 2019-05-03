@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import {searchTask} from '../../action_creators'
-import {connect} from 'react-redux'
+import { searchTask } from '../../action_creators'
+import { connect } from 'react-redux'
 import SearchIco from './ico-search.svg';
 import './style.css';
 
 class Search extends Component {
 
-     state = {
-         searchText: ''
+    state = {
+        searchText: ''
     }
 
-     
-    
-    
+
 
     handleChange = ev => {
 
         this.setState({
             searchText: ev.target.value
-        },() => {
-            const {searchTask} = this.props
+        }, () => {
+            const { searchTask } = this.props
             searchTask(this.state.searchText)
         })
     }
@@ -34,14 +32,14 @@ class Search extends Component {
         return (
             <div className="search">
                 <form className="search__form">
-                    <img src={SearchIco} className="search__ico" alt="search"/>
+                    <img src={SearchIco} className="search__ico" alt="search" />
                     <input className="search__input" type="search"
-                           placeholder="Search task"
-                           autoComplete="off" autoCorrect="off" autoCapitalize="off"
-                           spellCheck="false" required=""
-                           value={this.state.searchText}
-                           onChange={this.handleChange}
-                           onKeyPress={this.handleKeyPress}
+                        placeholder="Search task"
+                        autoComplete="off" autoCorrect="off" autoCapitalize="off"
+                        spellCheck="false" required=""
+                        value={this.state.searchText}
+                        onChange={this.handleChange}
+                        onKeyPress={this.handleKeyPress}
                     />
                 </form>
             </div>
@@ -49,4 +47,4 @@ class Search extends Component {
     }
 }
 
-export default connect(null, {searchTask})(Search);
+export default connect(null, { searchTask })(Search);
