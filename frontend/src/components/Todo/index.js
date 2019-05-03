@@ -4,10 +4,8 @@ import './style.css';
 import Search from "../Search/index";
 import AddTask from "../AddTask/index"
 import TaskList from "../TaskList/index"
-import { getTodos } from '../../action_creators'
 
-
-class App extends Component {
+class Todo extends Component {
 
  
 
@@ -26,4 +24,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Todo;
