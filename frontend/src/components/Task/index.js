@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { deleteTask, updateTask, updateTaskStatus } from '../../action_creators'
 import { deleteTodos } from '../../action_creators'
+import {toggleTodos} from '../../action_creators'
 import { connect } from 'react-redux'
 import './style.css';
 import icoCompleted from './ico-complited.svg'
@@ -20,9 +21,9 @@ class Task extends Component {
 
     handleDelete = ev => {
         ev.preventDefault()
-        /*  const { task, deleteTask } = this.props */
+       
         const { task } = this.props
-        console.log(task._id);
+        console.log("taskid where clicked",task._id);
         this.props.deleteTodos(task._id)
     }
 
@@ -42,8 +43,8 @@ class Task extends Component {
 
     handleToggleStatus = ev => {
         ev.preventDefault()
-        const { task, updateTaskStatus } = this.props
-        updateTaskStatus(task)
+        const { task, toggleTodos} = this.props
+       toggleTodos(task._id)
         this.setState({
             isCompleted: !this.state.isCompleted
         })
@@ -88,4 +89,4 @@ class Task extends Component {
     }
 }
 
-export default connect(null, { /* deleteTask */ deleteTodos, updateTask, updateTaskStatus })(Task);
+export default connect(null, { /* deleteTask */ deleteTodos, updateTask,toggleTodos })(Task);

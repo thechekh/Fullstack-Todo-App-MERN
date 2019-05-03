@@ -57,6 +57,27 @@ export function deleteTodos(id) {
     }
 }
 
+export function toggleTodos(id) {
+console.log(id);
+    return function action(dispatch) {
+
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+          
+        }
+
+        fetch(`http://localhost:4000/${id}/complete`, options).
+            then(response => response.json().then(data => dispatch(
+                {
+                    type:UPDATE_TASK_STATUS,
+                    payload: data,
+                })
+            ))
+
+    }
+}
+
 
 
 /* response.json().then((response)=>console.log(response) */

@@ -13,7 +13,10 @@ export default (state=[], action) => {
         case DELETE_TASK:
         console.log("redsuserpayid",payload.id);
    
-            return state.filter(task => task._id !== payload.id)
+
+            const newState= state.filter(task => task._id !== payload.id)
+            console.log(newState);
+            return newState
         case UPDATE_TASK:
             const updatedTasks = state.map(task => {
 
@@ -31,6 +34,7 @@ export default (state=[], action) => {
               _id: payload._id,
               text: payload.text,
               createdAt:payload.createdAt,
+              isCompleted:false,
           })
           console.log(newTasks);
 
@@ -41,7 +45,7 @@ export default (state=[], action) => {
         case UPDATE_TASK_STATUS:
             const updatedStatusTasks = state.map(task => {
 
-                if (task.id === payload.task.id) {
+                if (task.id === payload._id) {
                     const upTask = { ...payload.task }
                     upTask.isCompleted = !upTask.isCompleted
                     return upTask
