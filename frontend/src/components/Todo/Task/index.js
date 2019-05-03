@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { deleteTask, updateTask, updateTaskStatus } from '../../action_creators'
-import { deleteTodos } from '../../action_creators'
-import {toggleTodos} from '../../action_creators'
+import { deleteTask, updateTask, updateTaskStatus } from '../../../action_creators'
+import { deleteTodos } from '../../../action_creators'
+import {toggleTodos} from '../../../action_creators'
 import { connect } from 'react-redux'
 import './style.css';
 import icoCompleted from './ico-complited.svg'
