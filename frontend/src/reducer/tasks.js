@@ -29,7 +29,7 @@ export default (state=[], action) => {
 
         case ADD_TASK:
       
-          // constnewTasks={...state,...payload}
+         
           const newTasks = state.concat({
               _id: payload._id,
               text: payload.text,

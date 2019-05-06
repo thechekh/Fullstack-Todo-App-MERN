@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const controllers = require('./controllers.js')
+const controllers = require('../Controllers/todo_controller')
 
 router.get('/',controllers.getAll)
 router.post('/',controllers.create)

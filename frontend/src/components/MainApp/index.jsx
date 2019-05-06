@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import HomePage from '../HomePage'
 import LoginPage from '../LoginPage'
-import RegisterPage from '../RegisterPage'
+import {RegisterPage} from '../RegisterPage'
 import { connect } from 'react-redux';
 
 

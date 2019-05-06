@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 
-const todoRoutes = require('./routes')
+const todoRoutes = require('./Routes/todo_routes')
 const port = 4000;
 mongoose.connect('mongodb://localhost/todobd', { useNewUrlParser: true })
 
