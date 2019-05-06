@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import HomePage from '../HomePage'
 import {LoginPage} from '../LoginPage'
 import {RegisterPage} from '../RegisterPage'
+import {Private} from '../Private'
 import { connect } from 'react-redux';
 
 
@@ -15,7 +16,7 @@ class MainApp extends React.Component {
 
             <Router >
                 <div>
-                    <Route exact path="/" component={HomePage} />
+                <Private exact path="/" component={HomePage} />
                     <Route path="/login" component={LoginPage} />
                     <Route path="/register" component={RegisterPage} />
 

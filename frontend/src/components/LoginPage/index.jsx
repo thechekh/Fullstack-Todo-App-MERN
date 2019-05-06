@@ -9,7 +9,7 @@ class LoginPage extends React.Component {
     constructor(props) {
         super(props);
 
-
+        localStorage.removeItem('user');
         this.state = {
             login: '',
             password: '',
@@ -61,7 +61,7 @@ class LoginPage extends React.Component {
                     <div>
                         <button>Login</button>
                   
-                        <Link to="/register" className="btn btn-link">Register</Link>
+                        <Link to="/register">Register</Link>
                     </div>
                 </form>
             </div>
