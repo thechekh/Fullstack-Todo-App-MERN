@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { login } from './login_actions'
+
 
 
 class LoginPage extends React.Component {
@@ -28,9 +30,10 @@ class LoginPage extends React.Component {
 
         this.setState({ submitted: true });
         const { login, password } = this.state;
-        const { dispatch } = this.props;
+     
         if (login && password) {
           /*   dispatch action login */
+          this.props.login(login,password) 
         }
     }
 
@@ -65,7 +68,7 @@ class LoginPage extends React.Component {
         );
     }
 }
-/* 
+
 function mapStateToProps(state) {
     const { loggingIn } = state.authentication;
     return {
@@ -73,7 +76,8 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedLoginPage = connect(mapStateToProps)(LoginPage);
-export defalt { connectedLoginPage as LoginPage };  */
-export default LoginPage 
+const connectedLoginPage = connect(mapStateToProps,{login})(LoginPage);
+export { connectedLoginPage as LoginPage }; 
+
+
 

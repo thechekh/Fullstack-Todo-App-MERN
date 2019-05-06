@@ -10,11 +10,11 @@ export function register(user) {
                 body: JSON.stringify(user)
             };
         
-            return fetch(`http://localhost:4000/users/register`, requestOptions)
+            return fetch(`http://localhost:4001/users/register`, requestOptions)
             .then(
                 user => { 
                   history.push('/login');
-                  console.log("reg success");;
+                  console.log("reg success");
                 },
                 error => {
                    console.log("error",error);
