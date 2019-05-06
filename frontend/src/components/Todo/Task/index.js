@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { deleteTask, updateTask, updateTaskStatus } from '../../../action_creators'
-import { deleteTodos } from '../../../action_creators'
-import {toggleTodos} from '../../../action_creators'
+import { updateTask,deleteTodos,toggleTodos } from '../../../action_creators'
 import { connect } from 'react-redux'
 import './style.css';
 import icoCompleted from './ico-complited.svg'
@@ -89,4 +87,4 @@ class Task extends Component {
     }
 }
 
-export default connect(null, { /* deleteTask */ deleteTodos, updateTask,toggleTodos })(Task);
+export default connect(null, { deleteTodos, updateTask,toggleTodos })(Task);

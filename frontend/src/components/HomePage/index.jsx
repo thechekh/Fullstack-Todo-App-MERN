@@ -1,36 +1,35 @@
-//LogPage
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Todo from '../Todo'
 
-class LoginPage extends React.Component {
-
+class HomePage extends React.Component {
+  
 
     render() {
-
+      /*   const { user} = this.props; */
         return (
-            <div style={{marginLeft:'100px'}}>
-                <h2>This is a HomePage</h2>
-
-                <ul>Navigation
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/register">Register</Link>
-          </li>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-        </ul>
+            <div className="col-md-12 ">
+                <p>First name  Last name  Login</p>
+                <p>
+                    <Link to="/login">Logout</Link>
+                </p>
+                <Todo />
             </div>
-        )
+        );
     }
 }
+/* 
+ function mapStateToProps(state) {
+    const { users, authentication } = state;
+    const { user } = authentication;
+    return {
+        user,
+        users
+    };
+} 
 
-
-
-
-
-
-export default LoginPage 
+ const connectedHomePage = connect(mapStateToProps)(HomePage);
+export { connectedHomePage as HomePage };  */
+export default HomePage

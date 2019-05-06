@@ -116,12 +116,7 @@ export function updateTask(task) {
     }
 }
 
-export function updateTaskStatus(task) {
-    return {
-        type: UPDATE_TASK_STATUS,
-        payload: { task },
-    }
-}
+
 
 export function addTask(text) {
     return {
