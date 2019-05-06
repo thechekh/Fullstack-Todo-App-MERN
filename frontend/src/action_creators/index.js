@@ -1,32 +1,32 @@
-import { DELETE_TASK, UPDATE_TASK, ADD_TASK, UPDATE_TASK_STATUS, SEARCH_TASK, GET_TASKS } from '../constants'
+import { DELETE_TASK, UPDATE_TASK, ADD_TASK, SEARCH_TASK, GET_TASKS } from '../constants'
 
-export function getTodos() {
+export function getTodos(id) {
 
     return function action(dispatch) {
 
         const options = { method: "GET" }
 
 
-        fetch(`http://localhost:4001/`, options).then(response =>
-            response.json().then(data => dispatch(
+        fetch(`http://localhost:4001/${id}`, options)
+             .then(response=>response.json().then(data => dispatch(
                 {
                     type: GET_TASKS,
                     payload: data,
                 })
-            ))
+            ))  
     }
 }
-export function addTodos(text) {
+export function addTodos(task,id) {
 
     return function action(dispatch) {
 
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ text })
+            body: JSON.stringify({ task,id})
         }
 
-        fetch(`http://localhost:4001/`, options)
+        fetch(`http://localhost:4001/${id}`, options)
         .then(response => response.json().then(data => dispatch(
                 {
                     type: ADD_TASK,
@@ -68,11 +68,11 @@ export function toggleTodos(id) {
         }
 
         fetch(`http://localhost:4001/${id}/complete`, options)
-            .then(response => response.json().then(data => dispatch(
+            .then(response => response.json().then(data => console.log(data)/* dispatch(
                 {
                     type:UPDATE_TASK_STATUS,
                     payload: data,
-                })
+                }) */
             ))
 
     }

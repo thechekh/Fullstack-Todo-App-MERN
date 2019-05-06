@@ -13,7 +13,8 @@ handleClick = ev => {
     ev.preventDefault()
     if (this.state.text) {
     
-        this.props.addTodos(this.state.text)
+        this.props.addTodos(this.state.text,this.props._id)
+       
         this.setState({
             text: ''
         })
@@ -51,5 +52,10 @@ handleClick = ev => {
         );
     }
 }
-
-export default connect(null, { addTodos })(AddTask);
+function mapStateToProps(state) {
+    const { _id } = state.authentication.user;
+    return {
+        _id
+    };
+}
+export default connect(mapStateToProps, { addTodos })(AddTask);
