@@ -36,12 +36,12 @@ export function addTodos(task,id) {
 
     }
 }
-export function deleteTodos(id) {
+export function deleteTodos(task,id) {
 
     return function action(dispatch) {
 
         const options = {
-            method: 'POST',
+            method: '',
             headers: { 'Content-Type': 'application/json' },
           
         }
