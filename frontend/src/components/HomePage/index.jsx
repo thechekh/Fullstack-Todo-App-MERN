@@ -5,14 +5,17 @@ import { connect } from 'react-redux';
 import Todo from '../Todo'
 
 class HomePage extends React.Component {
-  
+
 
     render() {
-      /*   const { user} = this.props; */
+        const { user } = this.props;
+        console.log(user);
         return (
             <div className="col-md-12 ">
-                <p>First name  Last name  Login</p>
-                <p>
+                <p>Firstname:{user.firstName} <br/>
+                    Last name:{user.lastName} <br/>
+                    Login:{user.login} <br/>
+
                     <Link to="/login">Logout</Link>
                 </p>
                 <Todo />
@@ -20,16 +23,12 @@ class HomePage extends React.Component {
         );
     }
 }
-/* 
- function mapStateToProps(state) {
-    const { users, authentication } = state;
-    const { user } = authentication;
+function mapStateToProps(state) {
+    const { user } = state.authentication;
     return {
-        user,
-        users
+        user
     };
-} 
+}
 
- const connectedHomePage = connect(mapStateToProps)(HomePage);
-export { connectedHomePage as HomePage };  */
-export default HomePage
+const connectedHomePage = connect(mapStateToProps)(HomePage);
+export { connectedHomePage as HomePage }; 

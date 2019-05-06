@@ -26,8 +26,8 @@ export function addTodos(text) {
             body: JSON.stringify({ text })
         }
 
-        fetch(`http://localhost:4001/`, options).
-            then(response => response.json().then(data => dispatch(
+        fetch(`http://localhost:4001/`, options)
+        .then(response => response.json().then(data => dispatch(
                 {
                     type: ADD_TASK,
                     payload: data,
@@ -46,8 +46,8 @@ export function deleteTodos(id) {
           
         }
 
-        fetch(`http://localhost:4001/${id}`, options).
-            then(response => response.json().then(data => dispatch(
+        fetch(`http://localhost:4001/${id}`, options)
+           .then(response => response.json().then(data => dispatch(
                 {
                     type:DELETE_TASK,
                     payload: data,
@@ -67,8 +67,8 @@ export function toggleTodos(id) {
           
         }
 
-        fetch(`http://localhost:4001/${id}/complete`, options).
-            then(response => response.json().then(data => dispatch(
+        fetch(`http://localhost:4001/${id}/complete`, options)
+            .then(response => response.json().then(data => dispatch(
                 {
                     type:UPDATE_TASK_STATUS,
                     payload: data,
@@ -78,29 +78,6 @@ export function toggleTodos(id) {
     }
 }
 
-
-
-/* response.json().then((response)=>console.log(response) */
-
-/*   .then(data => dispatch(
-      {
-          type: ADD_TASK,
-          payload: data,
-      })
-  )) */
-
-
-/* function(response) {  
-      if (response.status !== 200) {  
-        console.log('err. status code: ' +  
-          response.status);  
-        return;  
-      }
-      response.json().then(function(data) {  
-        console.log(data); 
-        return data; 
-      });  
-    }   */
 
 export function deleteTask(id) {
     return {

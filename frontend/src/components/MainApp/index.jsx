@@ -1,12 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import HomePage from '../HomePage'
+import {HomePage} from '../HomePage'
 import {LoginPage} from '../LoginPage'
 import {RegisterPage} from '../RegisterPage'
 import {Private} from '../Private'
-import { connect } from 'react-redux';
-
-
 
 class MainApp extends React.Component {
 

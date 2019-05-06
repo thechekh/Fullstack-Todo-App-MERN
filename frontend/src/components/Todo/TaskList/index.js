@@ -8,13 +8,15 @@ class TaskList extends Component {
 
 
  componentDidMount() {
+    const {todo} = this.props
+     console.log(todo);
     this.props.getTodos()
 } 
   render() {
       const {tasks} = this.props
-
+console.log("taskss",tasks);
       const taskComponents = tasks.map(task =>
-          <Task key={task._id} task={task}>{task.text}</Task>
+          <Task key={task.id} task={task}>{task.task}</Task>
       )
 
       return  <div className="task-list">
@@ -28,9 +30,11 @@ class TaskList extends Component {
 let mapStateToProps = state => {
     if (!state.query) {
         return {
-            tasks: state.tasks
+           /*  tasks: state.tasks */
+          tasks:state.authentication.user.todo
         }
     }
+
 
     let foundTasks = state.tasks.filter(task => {
         if (task.text.indexOf(state.query) !== -1) {

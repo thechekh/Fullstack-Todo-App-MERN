@@ -32,13 +32,12 @@ class LoginPage extends React.Component {
         const { login, password } = this.state;
      
         if (login && password) {
-          /*   dispatch action login */
           this.props.login(login,password) 
         }
     }
 
     render() {
-        const { loggingIn } = this.props;
+      
         const { login, password, submitted } = this.state;
         return (
             <div>
