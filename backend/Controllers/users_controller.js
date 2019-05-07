@@ -11,7 +11,7 @@ exports.login = async (req, res, next) => {
 
         return res.json(user)
     } else {
-        console.log("user not EXISDTT")
+        console.log("user not EXIST")
         return res.status(400).json({ message: 'Username or password is incorrect' });
     }
 
@@ -19,12 +19,9 @@ exports.login = async (req, res, next) => {
 }
 exports.register = async (req, res, next) => {
     const user = req.body;
-    console.log("userobj", user);
-
     if (await User.findOne({ login: user.login })) {
         throw 'Username "' + user.login + '" is already taken';
     }
-
     const newUser = new User(user);
     newUser.hash = bcrypt.hashSync(user.password, 10);
     await newUser.save();

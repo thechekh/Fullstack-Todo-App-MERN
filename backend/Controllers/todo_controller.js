@@ -3,16 +3,16 @@ const User = require('../Models/user_model')
 exports.create = async (req, res, next) => {
 
     const { task, id } = req.body;
-    console.log(task, id);
     try {
-        const newTodo = {
-            id: Math.random(),
-            task,
-            isCompleted: false,
-        }
+
         User.findById(id, function (err, user) {
             if (err) throw err;
-
+            newId = user.todo.length + 1;
+            const newTodo = {
+                id: newId,
+                task,
+                isCompleted: false,
+            }
 
             user.todo.push(newTodo);
 
@@ -20,9 +20,11 @@ exports.create = async (req, res, next) => {
                 if (err) throw err;
 
                 console.log('Todo added sucessfly');
+
             });
+            return res.json(newTodo)
         });
-        return res.json(newTodo)
+
     } catch (error) {
         console.log(error)
     }
@@ -42,12 +44,12 @@ exports.getAll = async (req, res, next) => {
 exports.delete = async (req, res, next) => {
     const { id } = req.params;
     const { taskid } = req.body;
-    
+
     console.log("DELid", id, "TASKID", taskid);
 
-    const user= await User.findById(id)
-   console.log(user.todo);
-   
+    const user = await User.findById(id)
+    console.log(user.todo);
+
     /*    const b = User.
         find()
         .where('_id')
@@ -57,10 +59,10 @@ exports.delete = async (req, res, next) => {
     /* .find()
     .where('id')
    .equals(2)  */
-/*     b.exec(function (err, users) {
-        console.log(users);
-
-    }) */
+    /*     b.exec(function (err, users) {
+            console.log(users);
+    
+        }) */
 }
 
 // 'athletes' содержит список спортсменов, соответствующих критерию.
