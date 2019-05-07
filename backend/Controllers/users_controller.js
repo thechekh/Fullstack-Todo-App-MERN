@@ -28,4 +28,6 @@ exports.register = async (req, res, next) => {
     const newUser = new User(user);
     newUser.hash = bcrypt.hashSync(user.password, 10);
     await newUser.save();
+    return res.status(200)
+    .json({ newUser });
 }

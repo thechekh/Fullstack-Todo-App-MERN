@@ -11,10 +11,10 @@ class HomePage extends React.Component {
         const { user } = this.props;
  
         return (
-            <div className="col-md-12 ">
-                <p>Firstname:{user.firstName} <br/>
+            <div>
+                <p>{/* Firstname:{user.firstName} <br/>
                     Last name:{user.lastName} <br/>
-                    Login:{user.login} <br/>
+                    Login:{user.login} <br/> */}
 
                     <Link to="/login">Logout</Link>
                 </p>

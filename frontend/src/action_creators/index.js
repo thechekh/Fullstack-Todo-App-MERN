@@ -8,7 +8,7 @@ export function getTodos(id) {
         const options = { method: "GET" }
 
 
-        fetch(`http://localhost:4001/${id}`, options)
+        fetch(`http://localhost:4002/${id}`, options)
              .then(response=>response.json().then(data => dispatch(
                 {
                     type: GET_TASKS,
@@ -27,7 +27,7 @@ export function addTodos(task,id) {
             body: JSON.stringify({ task,id})
         }
 
-        fetch(`http://localhost:4001/${id}`, options)
+        fetch(`http://localhost:4002/${id}`, options)
         .then(response => response.json().then(data => dispatch(
                 {
                     type: ADD_TASK,
@@ -48,7 +48,7 @@ console.log("task",taskid,"id",id);
           
         }
 
-        fetch(`http://localhost:4001/${id}/delete`, options)
+        fetch(`http://localhost:4002/${id}/delete`, options)
            .then(response => response.json().then(data => dispatch(
                 {
                     type:DELETE_TASK,
@@ -69,7 +69,7 @@ export function toggleTodos(id,taskid) {
             body: JSON.stringify({ taskid})
         }
 
-        fetch(`http://localhost:4001/${id}/complete`, options)
+        fetch(`http://localhost:4002/${id}/complete`, options)
             .then(response => response.json().then(data => console.log(data)/* dispatch(
                 {
                     type:UPDATE_TASK_STATUS,

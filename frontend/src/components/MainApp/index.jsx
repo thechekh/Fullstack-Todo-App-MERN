@@ -1,12 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Router, Route } from 'react-router-dom';
 import {HomePage} from '../HomePage'
 import {LoginPage} from '../LoginPage'
 import {RegisterPage} from '../RegisterPage'
 import {Private} from '../Private'
-import { createBrowserHistory } from 'history';
-
-const history = createBrowserHistory();
+import { history } from '../../history'
 
 class MainApp extends React.Component {
 

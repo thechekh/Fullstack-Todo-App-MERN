@@ -1,6 +1,4 @@
-import { createBrowserHistory } from 'history';
-
-export const history = createBrowserHistory();
+import { history } from '../../history'
 export function login(login, password) {
     return function action(dispatch) {
 
@@ -10,11 +8,11 @@ export function login(login, password) {
             body: JSON.stringify({ login, password })
         };
 
-        return fetch(`http://localhost:4001/users/login`, requestOptions)
+        return fetch(`http://localhost:4002/users/login`, requestOptions)
             .then(handleResponse)
             .then(user => {
                 localStorage.setItem('user', JSON.stringify(user));
-                this.props.history.push("/");
+              history.push("/");
             },err=>console.log(err))
             //history push меняет url но не перерисоывает страницу
 
