@@ -20,10 +20,10 @@ class Task extends Component {
     handleDelete = ev => {
         ev.preventDefault()
 
-        const { task,_id } = this.props
-        console.log("taskid where clicked", task.id);
-        console.log(_id);
-      //  this.props.deleteTodos(task.id,_id) 
+        const {_id } = this.props
+        const  task_id=this.props.task.id
+
+       this.props.deleteTodos(_id,task_id) 
     }
 
 
@@ -42,8 +42,11 @@ class Task extends Component {
 
     handleToggleStatus = ev => {
         ev.preventDefault()
-        const { task, toggleTodos } = this.props
-        toggleTodos(task._id)
+     
+        const {_id } = this.props
+        const  task_id=this.props.task.id
+
+       this.props.toggleTodos(_id,task_id)  
         this.setState({
             isCompleted: !this.state.isCompleted
         })

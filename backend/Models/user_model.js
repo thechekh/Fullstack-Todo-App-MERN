@@ -11,6 +11,12 @@ const UserSchema = new Schema({
     createdDate: { type: Date, default: Date.now },
     todo:{type:Array,default:tasks},
 });
+/* Schema=mongoose.Schema;
 
+const todoSchema = new Schema({
+    text: { type: String, required: true },
+   isCompleted:{type:Boolean},
+    createdAt: { type: Date, default: Date.now }
+}) */
 
 module.exports = mongoose.model('User', UserSchema);

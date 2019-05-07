@@ -9,7 +9,7 @@ class HomePage extends React.Component {
 
     render() {
         const { user } = this.props;
-        console.log(user);
+ 
         return (
             <div className="col-md-12 ">
                 <p>Firstname:{user.firstName} <br/>

@@ -1,4 +1,5 @@
-import { DELETE_TASK, UPDATE_TASK, ADD_TASK, SEARCH_TASK, GET_TASKS } from '../constants'
+import { DELETE_TASK, UPDATE_TASK, ADD_TASK, SEARCH_TASK, GET_TASKS, userConstants } from '../constants'
+
 
 export function getTodos(id) {
 
@@ -36,17 +37,18 @@ export function addTodos(task,id) {
 
     }
 }
-export function deleteTodos(task,id) {
-
-    return function action(dispatch) {
+export function deleteTodos(id,taskid) {
+console.log("task",taskid,"id",id);
+     return function action(dispatch) {
 
         const options = {
-            method: '',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ taskid})
           
         }
 
-        fetch(`http://localhost:4001/${id}`, options)
+        fetch(`http://localhost:4001/${id}/delete`, options)
            .then(response => response.json().then(data => dispatch(
                 {
                     type:DELETE_TASK,
@@ -54,17 +56,17 @@ export function deleteTodos(task,id) {
                 })
             ))
 
-    }
+    } 
 }
 
-export function toggleTodos(id) {
-
+export function toggleTodos(id,taskid) {
+    console.log("task",taskid,"id",id);
     return function action(dispatch) {
 
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-          
+            body: JSON.stringify({ taskid})
         }
 
         fetch(`http://localhost:4001/${id}/complete`, options)

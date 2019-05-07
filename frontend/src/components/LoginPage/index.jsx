@@ -8,7 +8,6 @@ import { login } from './login_actions'
 class LoginPage extends React.Component {
     constructor(props) {
         super(props);
-
         localStorage.removeItem('user');
         this.state = {
             login: '',

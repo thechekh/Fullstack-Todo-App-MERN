@@ -13,11 +13,11 @@ export function register(user) {
             return fetch(`http://localhost:4001/users/register`, requestOptions)
             .then(
                 user => { 
-                  history.push('/login');
-                  console.log("reg success");
+                    history.push('/login');
+                  
                 },
                 error => {
-                   console.log("error",error);
+              
                 }
             );
     };

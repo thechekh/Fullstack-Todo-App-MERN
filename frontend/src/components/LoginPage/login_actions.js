@@ -14,7 +14,7 @@ export function login(login, password) {
             .then(handleResponse)
             .then(user => {
                 localStorage.setItem('user', JSON.stringify(user));
-               window.location.href="/"
+                this.props.history.push("/");
             },err=>console.log(err))
             //history push меняет url но не перерисоывает страницу
 

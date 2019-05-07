@@ -4,6 +4,9 @@ import {HomePage} from '../HomePage'
 import {LoginPage} from '../LoginPage'
 import {RegisterPage} from '../RegisterPage'
 import {Private} from '../Private'
+import { createBrowserHistory } from 'history';
+
+const history = createBrowserHistory();
 
 class MainApp extends React.Component {
 
@@ -11,7 +14,7 @@ class MainApp extends React.Component {
         return (
 
 
-            <Router >
+            <Router history={history}>
                 <div>
                 <Private exact path="/" component={HomePage} />
                     <Route path="/login" component={LoginPage} />

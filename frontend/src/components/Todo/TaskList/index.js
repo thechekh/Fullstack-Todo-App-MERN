@@ -9,12 +9,11 @@ class TaskList extends Component {
 
  componentDidMount() {
      const {_id}=this.props
-     console.log("IDUSER",_id);
+    
     this.props.getTodos(_id)
 } 
   render() {
       const {tasks} = this.props
-console.log("taskssks",tasks);
       const taskComponents = tasks.map(task =>
           <Task key={task.id} task={task}>{task.task}</Task>
       )
