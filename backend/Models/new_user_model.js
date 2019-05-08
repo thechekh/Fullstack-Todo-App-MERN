@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 const Todo = require('./new_todo_model');
 const Schema = mongoose.Schema;
-const tasks=require('./tasks');
 
 const UserSchema = new Schema({
 	login: { type: String,unique: true,  required: true},

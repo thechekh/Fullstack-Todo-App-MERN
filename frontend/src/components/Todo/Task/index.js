@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { updateTask, deleteTodos, toggleTodos } from '../../../action_creators'
+import { deleteTodos, toggleTodos } from '../../../action_creators'
 import { connect } from 'react-redux'
 import './style.css';
 import icoCompleted from './ico-complited.svg'
@@ -12,7 +12,7 @@ class Task extends Component {
     state = {
 
         text: this.props.children,
-        isCompleted: this.props.task.isCompleted
+        completed: this.props.task.completed
     }
 
 
@@ -20,10 +20,12 @@ class Task extends Component {
     handleDelete = ev => {
         ev.preventDefault()
 
-        const {_id } = this.props
-        const  task_id=this.props.task._id
+        const { _id } = this.props
+        const task_id = this.props.task._id
 
-       this.props.deleteTodos(_id,task_id) 
+        this.props.deleteTodos(_id, task_id)
+     
+
     }
 
 
@@ -42,18 +44,19 @@ class Task extends Component {
 
     handleToggleStatus = ev => {
         ev.preventDefault()
-     
-        const {_id } = this.props
-        const  task_id=this.props.task.id
 
-       this.props.toggleTodos(_id,task_id)  
+        const { _id } = this.props
+        const task_id = this.props.task._id
+
+        this.props.toggleTodos(_id, task_id)
         this.setState({
-            isCompleted: !this.state.isCompleted
+            completed: !this.state.completed
         })
+
     }
 
     getTaskStatus() {
-        if (this.state.isCompleted) {
+        if (this.state.completed) {
             return <img src={icoCompleted}
                 onClick={this.handleToggleStatus}
                 className="task-status__ico"
@@ -93,10 +96,10 @@ class Task extends Component {
 let mapStateToProps = state => {
 
     return {
-         _id: state.authentication.user._id 
-        }
+        _id: state.authentication.user._id
+    }
 
 
 }
 
-export default connect(mapStateToProps, { deleteTodos, updateTask, toggleTodos })(Task);
+export default connect(mapStateToProps, { deleteTodos, toggleTodos })(Task);

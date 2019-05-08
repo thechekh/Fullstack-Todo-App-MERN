@@ -43,15 +43,18 @@ export default (state=[], action) => {
       
 
         case UPDATE_TASK_STATUS:
-            const updatedStatusTasks = state.map(task => {
+console.log("PAYLOAD",payload);
+        const updatedStatusTasks = state.map(task => {
 
-                if (task._id === payload._id) {
-                    const newtask = { ...payload }
-                    newtask.isCompleted = !newtask.isCompleted
+                if (task._id === payload.todo._id) {
+                    console.log("TAKS",task);
+                    const newtask = { ...payload.todo }
+                    console.log("NEWTASK",newtask);
                     return newtask
                 }
                 return task
             })
+            console.log("pdateSTATUS TASKS",updatedStatusTasks);
             return updatedStatusTasks
 
         default:

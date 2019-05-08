@@ -58,4 +58,4 @@ function mapStateToProps(state) {
         _id
     };
 }
-export default connect(mapStateToProps, { addTodos })(AddTask);
+export default connect( mapStateToProps,  { addTodos })(AddTask);
