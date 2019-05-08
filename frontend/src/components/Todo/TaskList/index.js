@@ -9,7 +9,6 @@ class TaskList extends Component {
 
  componentDidMount() {
      const {_id}=this.props
-    
     this.props.getTodos(_id)
 } 
   render() {

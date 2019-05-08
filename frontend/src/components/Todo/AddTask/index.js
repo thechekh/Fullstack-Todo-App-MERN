@@ -12,9 +12,7 @@ class AddTask extends Component {
 handleClick = ev => {
     ev.preventDefault()
     if (this.state.text) {
-    
         this.props.addTodos(this.state.text,this.props._id)
-       
         this.setState({
             text: ''
         })

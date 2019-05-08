@@ -2,21 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from './login_actions'
-
+import './style.css';
 
 
 class LoginPage extends React.Component {
     constructor(props) {
         super(props);
-        localStorage.removeItem('user');
         this.state = {
             login: '',
             password: '',
             submitted: false
         };
-
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        localStorage.removeItem('user');
     }
 
     handleChange(e) {
@@ -29,37 +28,38 @@ class LoginPage extends React.Component {
 
         this.setState({ submitted: true });
         const { login, password } = this.state;
-     
+
         if (login && password) {
-          this.props.login(login,password) 
+            this.props.login(login, password)
         }
     }
 
     render() {
-      
+
         const { login, password, submitted } = this.state;
         return (
-            <div>
-                <h2>Login</h2>
-                <form name="login-form" onSubmit={this.handleSubmit}>
-                    <div>
+            <div className="auth-block">
+                
+                <form name="auth-form" className="auth-form" onSubmit={this.handleSubmit}>
+                <h2>Login  Form</h2>
+                    <div className="login-block">
                         <label>Login</label>
-                        <input type="text"  name="login" value={login} onChange={this.handleChange} />
+                        <input className="login-field" type="text" name="login" value={login} onChange={this.handleChange} />
                         {submitted && !login &&
                             <div>Login is required</div>
                         }
                     </div>
-                    <div>
+                    <div className="password-block">
                         <label>Password</label>
-                        <input type="password" name="password" value={password} onChange={this.handleChange} />
+                        <input type="password"className="password-field" name="password" value={password} onChange={this.handleChange} />
                         {submitted && !password &&
                             <div>Password is required</div>
                         }
                     </div>
                     <div>
-                        <button>Login</button>
-                  
-                        <Link to="/register">Register</Link>
+                        <button className="login-button">Login</button>
+
+                       <button className="register-button"><Link to="/register">Register</Link></button> 
                     </div>
                 </form>
             </div>
@@ -74,8 +74,8 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedLoginPage = connect(mapStateToProps,{login})(LoginPage);
-export { connectedLoginPage as LoginPage }; 
+const connectedLoginPage = connect(mapStateToProps, { login })(LoginPage);
+export { connectedLoginPage as LoginPage };
 
 
 

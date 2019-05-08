@@ -1,4 +1,4 @@
-import { DELETE_TASK, UPDATE_TASK_STATUS, UPDATE_TASK, ADD_TASK, SEARCH_TASK, GET_TASKS } from '../constants'
+import { DELETE_TASK, UPDATE_TASK_STATUS, ADD_TASK, SEARCH_TASK, GET_TASKS } from '../constants'
 export function getTodos(id) {
 
     return function action(dispatch) {

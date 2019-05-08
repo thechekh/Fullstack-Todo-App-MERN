@@ -76,6 +76,7 @@ class Task extends Component {
 
 
     render() {
+        console.log("this.props.children",this.props.children);
         return (
             <div className="task">
 

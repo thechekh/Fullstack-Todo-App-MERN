@@ -10,8 +10,6 @@ class Search extends Component {
         searchText: ''
     }
 
-
-
     handleChange = ev => {
 
         this.setState({
@@ -35,8 +33,6 @@ class Search extends Component {
                     <img src={SearchIco} className="search__ico" alt="search" />
                     <input className="search__input" type="search"
                         placeholder="Search task"
-                        autoComplete="off" autoCorrect="off" autoCapitalize="off"
-                        spellCheck="false" required=""
                         value={this.state.searchText}
                         onChange={this.handleChange}
                         onKeyPress={this.handleKeyPress}

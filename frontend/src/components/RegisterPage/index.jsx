@@ -70,8 +70,8 @@ class RegisterPage extends React.Component {
             <button>Register</button>
 
             <Link to="/login">Cancel</Link>
-            <br />
-            <Link to="/">Home(TODO)</Link>
+       
+           
           </div>
         </form>
       </div>
@@ -79,13 +79,8 @@ class RegisterPage extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
-    const { registering } = state.register;
-    return {
-        registering
-    };
-}
 
-const connectedRegisterPage = connect(mapStateToProps,{register})(RegisterPage);
+
+const connectedRegisterPage = connect(null,{register})(RegisterPage);
 export { connectedRegisterPage as RegisterPage };
 
