@@ -15,7 +15,7 @@ class TaskList extends Component {
   render() {
       const {tasks} = this.props
       const taskComponents = tasks.map(task =>
-          <Task key={task.id} task={task}>{task.task}</Task>
+          <Task key={task._id} task={task}>{task.text}</Task>
       )
 
       return  <div className="task-list">

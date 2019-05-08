@@ -8,65 +8,92 @@ export function getTodos(id) {
         const options = { method: "GET" }
 
 
-        fetch(`http://localhost:4002/${id}`, options)
-             .then(response=>response.json().then(data => dispatch(
-                {
+        fetch(`http://localhost:4002/todo/${id}`, options)
+             .then(response => response.json()
+             .then(data => dispatch(
+                 {
                     type: GET_TASKS,
                     payload: data,
-                })
-            ))  
+                })))
+            
     }
 }
-export function addTodos(task,id) {
-
+/* export function fetchTodos(){
+	return function(dispatch){
+		axios.get(`${ROOT_URL}/todos`, 
+			{ headers: { Authorization: localStorage.getItem('token') } })
+		.then(response => {
+			dispatch({ type: FETCH_TODOS, payload: response });
+		})
+		.catch(() => {	
+			console.log('error');
+		})
+	}	
+} */
+export function addTodos(task, id) {
+console.log(task,id);
     return function action(dispatch) {
 
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ task,id})
+            body: JSON.stringify({ task })
         }
 
-        fetch(`http://localhost:4002/${id}`, options)
-        .then(response => response.json().then(data => dispatch(
+        fetch(`http://localhost:4002/todo/${id}`, options)
+         /*    .then(response => response.json().then(data => dispatch(
                 {
                     type: ADD_TASK,
                     payload: data,
                 })
-            ))
-
-    }
-}
-export function deleteTodos(id,taskid) {
-console.log("task",taskid,"id",id);
-     return function action(dispatch) {
-
-        const options = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ taskid})
-          
-        }
-
-        fetch(`http://localhost:4002/${id}/delete`, options)
-           .then(response => response.json().then(data => dispatch(
-                {
-                    type:DELETE_TASK,
-                    payload: data,
-                })
-            ))
+            )) */
 
     } 
 }
 
-export function toggleTodos(id,taskid) {
-    console.log("task",taskid,"id",id);
+/* export function addTodo(todo){
+	return function(dispatch){
+		axios.post(`${ROOT_URL}/todo`, { text: todo }, 
+			{ headers: { Authorization: localStorage.getItem('token') } })
+		.then(response => {
+			dispatch({ type: ADD_TODO, payload: response })
+		})
+		.catch(() => {	
+			console.log('error');
+        })
+    }
+} */
+	
+export function deleteTodos(id, taskid) {
+    console.log("task", taskid, "id", id);
     return function action(dispatch) {
 
         const options = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ taskid})
+            body: JSON.stringify({ taskid })
+
+        }
+
+        fetch(`http://localhost:4002/${id}/delete`, options)
+            .then(response => response.json().then(data => dispatch(
+                {
+                    type: DELETE_TASK,
+                    payload: data,
+                })
+            ))
+
+    }
+}
+
+export function toggleTodos(id, taskid) {
+    console.log("task", taskid, "id", id);
+    return function action(dispatch) {
+
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ taskid })
         }
 
         fetch(`http://localhost:4002/${id}/complete`, options)
