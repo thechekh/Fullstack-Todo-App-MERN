@@ -1,0 +1,55 @@
+.register-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+.register-block h2 {
+    text-align: center;
+}
+
+.register-form {
+    min-width: 250px;
+}
+
+.login-block, .password-block {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.login-field, .password-field {
+    position: absolute;
+    right: 0;
+}
+
+.register-form a {
+    color: #fff;
+    text-decoration: none
+}
+
+.cancel-button, .register-button {
+    background-color: #6575e0;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 6px solid #5f74d9;
+    display: inline-block;
+    cursor: pointer;
+    color: #fff;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 6px 20px;
+    text-decoration: none;
+    transition: .3s;
+}
+
+
+.cancel-button:hover, .register-button:hover {
+    transform: scale(1.1)
+}
+
+.cancel-button:active, .register-button:active {
+    position: relative;
+    top: 1px;
+}

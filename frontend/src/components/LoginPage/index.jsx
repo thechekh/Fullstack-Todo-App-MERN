@@ -39,9 +39,9 @@ class LoginPage extends React.Component {
         const { login, password, submitted } = this.state;
         return (
             <div className="auth-block">
-                
+
                 <form name="auth-form" className="auth-form" onSubmit={this.handleSubmit}>
-                <h2>Login  Form</h2>
+                    <h2>Login  Form</h2>
                     <div className="login-block">
                         <label>Login</label>
                         <input className="login-field" type="text" name="login" value={login} onChange={this.handleChange} />
@@ -51,7 +51,7 @@ class LoginPage extends React.Component {
                     </div>
                     <div className="password-block">
                         <label>Password</label>
-                        <input type="password"className="password-field" name="password" value={password} onChange={this.handleChange} />
+                        <input type="password" className="password-field" name="password" value={password} onChange={this.handleChange} />
                         {submitted && !password &&
                             <div>Password is required</div>
                         }
@@ -59,7 +59,7 @@ class LoginPage extends React.Component {
                     <div>
                         <button className="login-button">Login</button>
 
-                       <button className="register-button"><Link to="/register">Register</Link></button> 
+                    <Link to="/register" className="register-button">Register</Link>
                     </div>
                 </form>
             </div>

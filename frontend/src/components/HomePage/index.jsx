@@ -9,11 +9,8 @@ export default class HomePage extends React.Component {
     render() {
         return (
             <div>
-                <p>
-
-                    <Link to="/login">Logout</Link>
-                </p>
                 <Todo />
+                <Link to="/login"  className="register-button">Logout</Link>
             </div>
         );
     }

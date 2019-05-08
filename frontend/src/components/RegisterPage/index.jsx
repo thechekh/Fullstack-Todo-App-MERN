@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { register } from './register_actions'
-
+import './style.css'
 
 class RegisterPage extends React.Component {
   constructor(props) {
@@ -47,29 +47,33 @@ class RegisterPage extends React.Component {
   render() {
     const { user, submitted } = this.state;
     return (
-      <div>
-        <h2>Register</h2>
-        <form name="register-form" onSubmit={this.handleSubmit}>
+      <div className="register-block">
+   
+        <form name="register-form" className="register-form" onSubmit={this.handleSubmit}>
    
 
-          <div>
+         
+          <h2>Register</h2>
+          <div className="login-block">
             <label >Login</label>
-            <input type="text" name="login" value={user.login} onChange={this.handleChange} />
+            <input type="text"className="login-field" name="login" value={user.login} onChange={this.handleChange} />
             {submitted && !user.login &&
               <div>Login is required</div>
             }
           </div>
-          <div>
+          <div className="password-block">
             <label>Password</label>
-            <input type="password" name="password" value={user.password} onChange={this.handleChange} />
+            <input type="password" className="password-field" name="password" value={user.password} onChange={this.handleChange} />
             {submitted && !user.password &&
               <div>Password is required</div>
             }
           </div>
           <div>
-            <button>Register</button>
 
-            <Link to="/login">Cancel</Link>
+          <Link to="/login" className="cancel-button">Cancel</Link>
+            <button className="register-button">Register</button>
+
+        
        
            
           </div>
