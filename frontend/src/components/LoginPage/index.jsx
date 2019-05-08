@@ -17,7 +17,6 @@ class LoginPage extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         localStorage.removeItem('user');
     }
-
     handleChange(e) {
         const { name, value } = e.target;
         this.setState({ [name]: value });
@@ -59,7 +58,7 @@ class LoginPage extends React.Component {
                     <div>
                         <button className="login-button">Login</button>
 
-                    <Link to="/register" className="register-button">Register</Link>
+                        <Link to="/register" className="register-button">Register</Link>
                     </div>
                 </form>
             </div>

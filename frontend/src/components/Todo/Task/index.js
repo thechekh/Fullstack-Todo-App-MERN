@@ -10,25 +10,16 @@ import icoDelete from './ico-delete.svg'
 class Task extends Component {
 
     state = {
-
         text: this.props.children,
         completed: this.props.task.completed
     }
 
-
-
     handleDelete = ev => {
         ev.preventDefault()
-
         const { _id } = this.props
         const task_id = this.props.task._id
-
         this.props.deleteTodos(_id, task_id)
-     
-
     }
-
-
 
     handleChange = ev => {
         this.setState({
@@ -71,15 +62,9 @@ class Task extends Component {
             />
         }
     }
-
-
-
-
     render() {
-        console.log("this.props.children",this.props.children);
         return (
             <div className="task">
-
                 <div className="task_wrapper">
                     {this.getTaskStatus()}
 

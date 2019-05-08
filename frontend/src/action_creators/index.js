@@ -1,11 +1,12 @@
 import { DELETE_TASK, UPDATE_TASK_STATUS, ADD_TASK, SEARCH_TASK, GET_TASKS } from '../constants'
+const ROOT_URL = "http://localhost:4002"
 export function getTodos(id) {
 
-    return function action(dispatch) {
+    return (dispatch) => { 
 
         const options = { method: "GET" }
 
-        fetch(`http://localhost:4002/todo/${id}`, options)
+        fetch(`${ROOT_URL}/todo/${id}`, options)
             .then(response => response.json()
                 .then(data => dispatch(
                     {
@@ -18,8 +19,7 @@ export function getTodos(id) {
     }
 }
 export function addTodos(task, id) {
-    console.log(task, id);
-    return function action(dispatch) {
+    return (dispatch) => { 
 
         const options = {
             method: 'POST',
@@ -27,20 +27,20 @@ export function addTodos(task, id) {
             body: JSON.stringify({ task })
         }
 
-        fetch(`http://localhost:4002/todo/${id}`, options)
-            .then(response => response.json().then(data => dispatch(
-                {
-                    type: ADD_TASK,
-                    payload: data,
-                })
-            ))
+        fetch(`${ROOT_URL}/todo/${id}`, options)
+            .then(response => response.json()
+                .then(data => dispatch(
+                    {
+                        type: ADD_TASK,
+                        payload: data,
+                    })
+                ))
 
     }
 }
 
 
 export function deleteTodos(id, taskid) {
-    console.log("taskkkk", taskid, "idkkkkk", id);
     return function action(dispatch) {
 
         const options = {
@@ -49,14 +49,14 @@ export function deleteTodos(id, taskid) {
             body: JSON.stringify({ taskid })
 
         }
-        fetch(`http://localhost:4002/todo/${id}`, options)
-            .then(response => response.json().then(data =>
-                dispatch(
+        fetch(`${ROOT_URL}/todo/${id}`, options)
+            .then(response => response.json()
+                .then(data => dispatch(
                     {
                         type: DELETE_TASK,
                         payload: data,
                     })
-            ))
+                ))
 
     }
 }
@@ -71,9 +71,9 @@ export function toggleTodos(id, taskid) {
             body: JSON.stringify({ taskid })
         }
 
-        fetch(`http://localhost:4002/todo/toggle/${id}`, options)
-            .then(response => response.json().
-                then(data => dispatch(
+        fetch(`${ROOT_URL}/todo/toggle/${id}`, options)
+            .then(response => response.json()
+                .then(data => dispatch(
                     {
                         type: UPDATE_TASK_STATUS,
                         payload: data,

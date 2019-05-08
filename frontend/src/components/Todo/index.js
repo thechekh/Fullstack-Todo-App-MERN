@@ -6,14 +6,8 @@ import AddTask from "./AddTask/index"
 import TaskList from "./TaskList/index"
 
 class Todo extends Component {
-
- 
-
-
   render() {
-
     return (
-
       <div>
         <Header />
         <Search />

@@ -6,7 +6,6 @@ import store from './store/index'
 import {Provider} from 'react-redux'
 import MainApp from './components/MainApp';
 
-
 ReactDOM.render(
     <Provider store={store}>
         <MainApp/>
