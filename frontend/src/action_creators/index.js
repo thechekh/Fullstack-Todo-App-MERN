@@ -41,12 +41,12 @@ console.log(task,id);
         }
 
         fetch(`http://localhost:4002/todo/${id}`, options)
-         /*    .then(response => response.json().then(data => dispatch(
+        .then(response => response.json().then(data => dispatch(
                 {
                     type: ADD_TASK,
                     payload: data,
                 })
-            )) */
+            )) 
 
     } 
 }

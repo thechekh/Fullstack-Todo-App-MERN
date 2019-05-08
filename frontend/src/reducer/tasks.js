@@ -31,10 +31,10 @@ export default (state=[], action) => {
       
          
           const newTasks = state.concat({
-              id: payload.id,
-              task: payload.task,
-              createdAt:payload.createdAt,
-              isCompleted:false,
+              user:payload.user,
+              _id: payload._id,
+            text: payload.text,
+              completed:false,
           })
           console.log(newTasks);
 
