@@ -35,13 +35,14 @@ console.log(todo);
 }
 
 exports.deleteTodo = (req, res, next) => {
-	const id = req.params.id;
-
-	Todo.remove({ _id : id }, (err, result) => {
+    const id = req.params.id;
+    const {taskid}=req.body;
+console.log("userid",id,"taskid",taskid);
+	Todo.remove({ _id : taskid}, (err, result) => {
 		if(err){
 			res.send(err);
 		} else {
-			res.send({ id: id });
+			res.send({taskid});
 		}
 	})
 }

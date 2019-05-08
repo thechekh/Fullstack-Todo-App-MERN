@@ -14,7 +14,7 @@ export default (state=[], action) => {
         console.log("redsuserpayid",payload.id);
    
 
-            const newState= state.filter(task => task._id !== payload.id)
+            const newState= state.filter(task => task._id !== payload.taskid)
             console.log(newState);
             return newState
         case UPDATE_TASK:

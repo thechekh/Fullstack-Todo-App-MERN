@@ -65,29 +65,29 @@ console.log(task,id);
 } */
 	
 export function deleteTodos(id, taskid) {
-    console.log("task", taskid, "id", id);
+    console.log("taskkkk", taskid, "idkkkkk", id);
     return function action(dispatch) {
 
         const options = {
-            method: 'POST',
+            method: 'DELETE',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ taskid })
 
         }
-
-        fetch(`http://localhost:4002/${id}/delete`, options)
-            .then(response => response.json().then(data => dispatch(
+        fetch(`http://localhost:4002/todo/${id}`, options)
+        .then(response => response.json().then(data =>
+        dispatch(
                 {
                     type: DELETE_TASK,
                     payload: data,
-                })
-            ))
+                }) 
+            )) 
 
-    }
+    } 
 }
 
 export function toggleTodos(id, taskid) {
-    console.log("task", taskid, "id", id);
+   
     return function action(dispatch) {
 
         const options = {
