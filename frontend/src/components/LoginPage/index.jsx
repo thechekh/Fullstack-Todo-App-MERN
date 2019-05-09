@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from './login_actions'
+import { logout } from './login_actions'
 import './style.css';
 
 
@@ -15,7 +16,8 @@ class LoginPage extends React.Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        localStorage.removeItem('user');
+        this.props.logout();
+
     }
     handleChange(e) {
         const { name, value } = e.target;
@@ -73,7 +75,7 @@ function mapStateToProps(state) {
     };
 }
 
-const connectedLoginPage = connect(mapStateToProps, { login })(LoginPage);
+const connectedLoginPage = connect(mapStateToProps, { login, logout })(LoginPage);
 export { connectedLoginPage as LoginPage };
 
 

@@ -1,6 +1,8 @@
 import { history } from '../../history'
+import { userConstants } from '../../constants'
 export function login(login, password) {
     return function action(dispatch) {
+        dispatch(request(login));
 
         const requestOptions = {
             method: 'POST',
@@ -12,12 +14,23 @@ export function login(login, password) {
             .then(handleResponse)
             .then(user => {
                 localStorage.setItem('user', JSON.stringify(user));
+                dispatch(success(user));
                 history.push("/");
-            }, err => console.log(err))
-            
-        //history push меняет url но не перерисоывает страницу
-
+            },
+                err => {
+                    console.log(err)
+                    dispatch(failure(err))
+                })
+        function request(user) { return { type: userConstants.LOGIN_REQUEST, user } }
+        function success(user) { return { type: userConstants.LOGIN_SUCCESS, user } }
+        function failure(error) { return { type: userConstants.LOGIN_FAILURE, error } }
     }
+}
+
+export function logout() {
+    console.log("logo123ut");
+    return { type: userConstants.LOGOUT };
+
 }
 
 function handleResponse(response) {

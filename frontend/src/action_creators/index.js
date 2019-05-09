@@ -1,7 +1,6 @@
 import { DELETE_TASK, UPDATE_TASK_STATUS, ADD_TASK, SEARCH_TASK, GET_TASKS } from '../constants'
 const ROOT_URL = "http://localhost:4002"
 export function getTodos(id) {
-
     return (dispatch) => { 
 
         const options = { method: "GET" }
@@ -13,8 +12,8 @@ export function getTodos(id) {
                         type: GET_TASKS,
                         payload: data,
                     })
-                )
-            )
+                ,(err)=>console.log(err))
+            ,(err)=>console.log(err));
 
     }
 }

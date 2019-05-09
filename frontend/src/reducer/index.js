@@ -9,3 +9,4 @@ export default combineReducers({
     tasks:taskReducer,
     query: searchReducer,
 })
+

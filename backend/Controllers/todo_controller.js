@@ -1,5 +1,5 @@
 
-const Todo = require('../Models/new_todo_model');
+const Todo = require('../Models/todo_model');
 
 exports.getTodos = (req, res, next) => {
     const id = req.params.id;
