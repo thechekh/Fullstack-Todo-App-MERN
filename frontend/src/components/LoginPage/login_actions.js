@@ -8,7 +8,7 @@ export function login(login, password) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ login, password })
         };
-        return fetch(`http://localhost:4004/users/login`, requestOptions)
+        return fetch(`http://localhost:4008/users/login`, requestOptions)
             .then(handleResponse)
             .then(user => {
                 localStorage.setItem('user', JSON.stringify(user));
