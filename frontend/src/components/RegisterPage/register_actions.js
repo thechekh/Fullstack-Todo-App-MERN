@@ -8,7 +8,7 @@ export function register(user) {
             body: JSON.stringify(user)
         };
 
-        return fetch(`http://localhost:4002/users/register`, requestOptions)
+        return fetch(`http://localhost:4004/users/register`, requestOptions)
             .then(response => response.json().then(data => {
                 console.log(data)
                 history.push('/login')
