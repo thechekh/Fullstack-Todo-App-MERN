@@ -8,7 +8,7 @@ export default class HomePage extends React.Component {
         return (
             <div>
                 <Todo />
-                <Link to="/login"  className="register-button">Logout</Link>
+                <Link to="/login" onClick="{history.push(/)}" className="register-button">Logout</Link>
             </div>
         );
     }
