@@ -68,14 +68,9 @@ class LoginPage extends React.Component {
     }
 }
 
-function mapStateToProps(state) {
-    const { loggingIn } = state.authentication;
-    return {
-        loggingIn
-    };
-}
 
-const connectedLoginPage = connect(mapStateToProps, { login, logout })(LoginPage);
+
+const connectedLoginPage = connect(null, { login, logout })(LoginPage);
 export { connectedLoginPage as LoginPage };
 
 
