@@ -10,7 +10,7 @@ export function register(user) {
 
         return fetch(`http://localhost:4008/users/register`, requestOptions)
             .then(response => response.json().then(data => {
-                console.log(data)
+                console.log("User created")
                 history.push('/login')
             }))
     };
