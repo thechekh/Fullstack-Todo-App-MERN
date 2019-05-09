@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { searchTask } from '../../../action_creators'
+import { searchTask } from  '../../HomePage/home_page_actions'
 import { connect } from 'react-redux'
 import SearchIco from './ico-search.svg';
 import './style.css';

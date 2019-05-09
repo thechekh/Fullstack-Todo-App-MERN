@@ -1,4 +1,4 @@
-import { DELETE_TASK, UPDATE_TASK_STATUS, ADD_TASK, SEARCH_TASK, GET_TASKS } from '../constants'
+import { DELETE_TASK, UPDATE_TASK_STATUS, ADD_TASK, SEARCH_TASK, GET_TASKS } from '../../constants'
 const ROOT_URL = "http://localhost:4002"
 export function getTodos(id) {
     return (dispatch) => { 
@@ -39,7 +39,7 @@ export function addTodos(task, id) {
 }
 
 
-export function deleteTodos(id, taskid) {
+export function deleteTodos(taskid) {
     return function action(dispatch) {
 
         const options = {
@@ -48,7 +48,7 @@ export function deleteTodos(id, taskid) {
             body: JSON.stringify({ taskid })
 
         }
-        fetch(`${ROOT_URL}/todo/${id}`, options)
+        fetch(`${ROOT_URL}/todo/delete`, options)
             .then(response => response.json()
                 .then(data => dispatch(
                     {
@@ -61,7 +61,6 @@ export function deleteTodos(id, taskid) {
 }
 
 export function toggleTodos(id, taskid) {
-    console.log("taskide", taskid);
     return function action(dispatch) {
 
         const options = {

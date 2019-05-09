@@ -1,6 +1,5 @@
 
 const Todo = require('../Models/todo_model');
-
 exports.getTodos = (req, res, next) => {
     const id = req.params.id;
     Todo.find({ user: id })
@@ -30,7 +29,6 @@ exports.saveTodo = (req, res, next) => {
 }
 
 exports.deleteTodo = (req, res, next) => {
-    const id = req.params.id;
     const { taskid } = req.body;
         Todo.remove({ _id: taskid }, (err, result) => {
         if (err) {
@@ -43,7 +41,6 @@ exports.deleteTodo = (req, res, next) => {
 
 
 exports.toggleTodo = (req, res, next) => {
-    const id = req.params.id;
     const { taskid } = req.body;
     Todo.findById(taskid, async (err, todo) => {
         if (err) {

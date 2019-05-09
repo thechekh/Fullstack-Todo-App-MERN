@@ -3,13 +3,11 @@ import { userConstants } from '../../constants'
 export function login(login, password) {
     return function action(dispatch) {
         dispatch(request(login));
-
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ login, password })
         };
-
         return fetch(`http://localhost:4002/users/login`, requestOptions)
             .then(handleResponse)
             .then(user => {
@@ -28,9 +26,7 @@ export function login(login, password) {
 }
 
 export function logout() {
-    console.log("logo123ut");
     return { type: userConstants.LOGOUT };
-
 }
 
 function handleResponse(response) {

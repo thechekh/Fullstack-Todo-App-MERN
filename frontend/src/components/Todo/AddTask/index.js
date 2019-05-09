@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
-import {addTodos} from '../../../action_creators'
+import {addTodos} from '../../HomePage/home_page_actions'
 import {connect} from 'react-redux'
 import addTaskIco from './ico-add.svg'
 

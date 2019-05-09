@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { deleteTodos, toggleTodos } from '../../../action_creators'
+import { deleteTodos, toggleTodos } from '../../HomePage/home_page_actions'
 import { connect } from 'react-redux'
 import './style.css';
 import icoCompleted from './ico-complited.svg'

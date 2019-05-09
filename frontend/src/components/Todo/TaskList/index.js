@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './style.css';
 import Task from "../Task/index";
-import { getTodos } from '../../../action_creators'
+import { getTodos } from '../../HomePage/home_page_actions'
 class TaskList extends Component {
 
     componentDidMount() {

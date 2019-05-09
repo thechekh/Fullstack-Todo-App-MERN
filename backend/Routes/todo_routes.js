@@ -7,7 +7,7 @@ const Todo = require('../Controllers/todo_controller');
 router.get('/:id', Todo.getTodos);
 router.post('/:id', Todo.saveTodo);
 router.post('/toggle/:id', Todo.toggleTodo);
-router.delete('/:id', Todo.deleteTodo);
+router.delete('/delete', Todo.deleteTodo);
 
 
 
