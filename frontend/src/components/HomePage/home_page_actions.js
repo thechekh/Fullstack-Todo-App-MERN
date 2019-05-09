@@ -38,7 +38,6 @@ export function addTodos(task, id) {
     }
 }
 
-
 export function deleteTodos(id ,taskid) {
     return function action(dispatch) {
 
