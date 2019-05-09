@@ -1,5 +1,5 @@
 import { DELETE_TASK, UPDATE_TASK_STATUS, ADD_TASK, SEARCH_TASK, GET_TASKS } from '../../constants'
-const ROOT_URL = "http://localhost:4002"
+const ROOT_URL = "http://localhost:4003"
 export function getTodos(id) {
     return (dispatch) => { 
 
@@ -39,7 +39,7 @@ export function addTodos(task, id) {
 }
 
 
-export function deleteTodos(taskid) {
+export function deleteTodos(id ,taskid) {
     return function action(dispatch) {
 
         const options = {
