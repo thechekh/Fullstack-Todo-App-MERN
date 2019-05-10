@@ -9,7 +9,7 @@ exports.register = async (req, res, next) => {
     newUser.hash = bcrypt.hashSync(user.password, 10);
     await newUser.save();
     return res.status(200)
-        .json({ newUser });
+        .json({newUser});
 }
 exports.login = async (req, res, next) => {
     const { login, password } = req.body;

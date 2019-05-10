@@ -1,5 +1,6 @@
 import { history } from '../../history'
 import { userConstants } from '../../constants'
+import {ROOT_URL} from '../../constants'
 export function login(login, password) {
     return function action(dispatch) {
         dispatch(request(login));
@@ -8,7 +9,7 @@ export function login(login, password) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ login, password })
         };
-        return fetch(`http://localhost:4008/users/login`, requestOptions)
+        return fetch(`${ROOT_URL}/users/login`, requestOptions)
             .then(handleResponse)
             .then(user => {
                 localStorage.setItem('user', JSON.stringify(user));

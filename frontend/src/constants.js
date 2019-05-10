@@ -20,3 +20,5 @@ export const userConstants = {
     LOGOUT: 'USERS_LOGOUT',
 
 };
+
+export const ROOT_URL = "http://localhost:4008"

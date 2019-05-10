@@ -1,5 +1,5 @@
 import { DELETE_TASK, UPDATE_TASK_STATUS, ADD_TASK, SEARCH_TASK, GET_TASKS } from '../../constants'
-const ROOT_URL = "http://localhost:4008"
+import {ROOT_URL} from '../../constants'
 export function getTodos(id) {
     return (dispatch) => { 
 
