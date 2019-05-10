@@ -1,6 +1,6 @@
 import { DELETE_TASK, UPDATE_TASK_STATUS, ADD_TASK, SEARCH_TASK, GET_TASKS } from '../../constants'
 import { ROOT_URL } from '../../constants'
-export function getTodos(id) {
+export const getTodos = (id) => {
     return (dispatch) => {
 
         const options = { method: "GET" }
@@ -17,7 +17,7 @@ export function getTodos(id) {
 
     }
 }
-export function addTodos(task, id) {
+export const addTodos = (task, id) => {
     return (dispatch) => {
 
         const options = {
@@ -38,8 +38,8 @@ export function addTodos(task, id) {
     }
 }
 
-export function deleteTodos(taskid) {
-    return function action(dispatch) {
+export const deleteTodos = (taskid) => {
+    return (dispatch) => {
 
         const options = {
             method: 'DELETE',
@@ -58,9 +58,8 @@ export function deleteTodos(taskid) {
 
     }
 }
-
-export function toggleTodos(id, taskid) {
-    return function action(dispatch) {
+export const toggleTodos = (id, taskid) => {
+    return (dispatch) => {
 
         const options = {
             method: 'PUT',
@@ -79,7 +78,7 @@ export function toggleTodos(id, taskid) {
                 ))
     }
 }
-export function searchTask(query) {
+export const searchTask = (query) => {
     return {
         type: SEARCH_TASK,
         payload: { query }

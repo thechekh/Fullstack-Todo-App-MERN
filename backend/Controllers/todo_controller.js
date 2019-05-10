@@ -9,8 +9,6 @@ exports.getTodos = async (req, res, next) => {
 exports.saveTodo = async (req, res, next) => {
     const text = req.body.task;
     const id = req.params.id;
-
-
     const todo = await Todo.create(
         {
             text: text,
@@ -22,13 +20,13 @@ exports.saveTodo = async (req, res, next) => {
 
 exports.deleteTodo = async (req, res, next) => {
     const { taskid } = req.body;
-    await Todo.remove({ _id: taskid })
+    await Todo.findByIdAndDelete(taskid)
+
     return res.json({ taskid });
 }
-
-
 exports.toggleTodo = async (req, res, next) => {
     const { taskid } = req.body;
+    Todo.findByIdAndUpdate(taskid, body)
     await Todo.findById(taskid, async (err, todo) => {
         if (err) {
             res.send(err);
