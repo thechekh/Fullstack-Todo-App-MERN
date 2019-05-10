@@ -18,7 +18,7 @@ class Task extends Component {
         ev.preventDefault()
         const { _id } = this.props
         const task_id = this.props.task._id
-        this.props.deleteTodos(_id, task_id)
+        this.props.deleteTodos(task_id)
     }
 
     handleChange = ev => {

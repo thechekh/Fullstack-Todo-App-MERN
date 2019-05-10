@@ -1,7 +1,7 @@
 import { DELETE_TASK, UPDATE_TASK_STATUS, ADD_TASK, SEARCH_TASK, GET_TASKS } from '../../constants'
-import {ROOT_URL} from '../../constants'
+import { ROOT_URL } from '../../constants'
 export function getTodos(id) {
-    return (dispatch) => { 
+    return (dispatch) => {
 
         const options = { method: "GET" }
 
@@ -12,13 +12,13 @@ export function getTodos(id) {
                         type: GET_TASKS,
                         payload: data,
                     })
-                ,(err)=>console.log(err))
-            ,(err)=>console.log(err));
+                    , (err) => console.log(err))
+                , (err) => console.log(err));
 
     }
 }
 export function addTodos(task, id) {
-    return (dispatch) => { 
+    return (dispatch) => {
 
         const options = {
             method: 'POST',
@@ -38,7 +38,7 @@ export function addTodos(task, id) {
     }
 }
 
-export function deleteTodos(id ,taskid) {
+export function deleteTodos(taskid) {
     return function action(dispatch) {
 
         const options = {
@@ -63,12 +63,12 @@ export function toggleTodos(id, taskid) {
     return function action(dispatch) {
 
         const options = {
-            method: 'POST',
+            method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ taskid })
         }
 
-        fetch(`${ROOT_URL}/todo/toggle/${id}`, options)
+        fetch(`${ROOT_URL}/todo/${id}`, options)
             .then(response => response.json()
                 .then(data => dispatch(
                     {
