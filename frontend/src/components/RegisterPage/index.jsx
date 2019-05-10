@@ -11,14 +11,14 @@ class RegisterPage extends React.Component {
     this.state = {
       user: {
         login: '',
-        firstName: '',
-        lastName: '',
+        email: '',
         password: ''
       },
       submitted: false
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeEmail = this.handleChangeEmail.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -33,14 +33,27 @@ class RegisterPage extends React.Component {
     });
   }
 
+  handleChangeEmail(event) {
+    const { name, value } = event.target;
+    const { user } = this.state;
+    this.setState({
+      user: {
+        ...user,
+        [name]: value
+      }
+    });
+  }
+
+
+
   handleSubmit(event) {
     event.preventDefault();
 
     this.setState({ submitted: true });
     const { user } = this.state;
- 
+
     if (user.login && user.password) {
- this.props.register(this.state.user) 
+      this.props.register(this.state.user)
     }
   }
 
@@ -48,17 +61,24 @@ class RegisterPage extends React.Component {
     const { user, submitted } = this.state;
     return (
       <div className="register-block">
-   
-        <form name="register-form" className="register-form" onSubmit={this.handleSubmit}>
-   
 
-         
+        <form name="register-form" className="register-form" onSubmit={this.handleSubmit}>
+
+
+
           <h2>Register</h2>
           <div className="login-block">
             <label >Login</label>
-            <input type="text"className="login-field" name="login" value={user.login} onChange={this.handleChange} />
+            <input type="text" className="login-field" name="login" value={user.login} onChange={this.handleChange} />
             {submitted && !user.login &&
               <div>Login is required</div>
+            }
+          </div>
+          <div className="login-block">
+            <label >Email</label>
+            <input type="text" className="login-field" name="email" value={user.email} onChange={this.handleChangeEmail} />
+            {submitted && !user.email &&
+              <div>Email is required</div>
             }
           </div>
           <div className="password-block">
@@ -70,12 +90,12 @@ class RegisterPage extends React.Component {
           </div>
           <div>
 
-          <Link to="/login" className="cancel-button">Cancel</Link>
+            <Link to="/login" className="cancel-button">Cancel</Link>
             <button className="register-button">Register</button>
 
-        
-       
-           
+
+
+
           </div>
         </form>
       </div>
@@ -85,6 +105,6 @@ class RegisterPage extends React.Component {
 
 
 
-const connectedRegisterPage = connect(null,{register})(RegisterPage);
+const connectedRegisterPage = connect(null, { register })(RegisterPage);
 export { connectedRegisterPage as RegisterPage };
 
