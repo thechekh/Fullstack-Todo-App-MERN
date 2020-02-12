@@ -32,8 +32,9 @@ export default (state = [], action) => {
         case UPDATE_TASK_STATUS:
             const updatedStatusTasks = state.map(task => {
 
-                if (task._id === payload.todo._id) {
-                    const newtask = { ...payload.todo }
+                if (task._id === payload._id) {
+
+                    const newtask = { ...payload }
                     return newtask
                 }
                 return task

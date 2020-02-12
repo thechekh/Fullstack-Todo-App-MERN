@@ -26,7 +26,8 @@ exports.deleteTodo = async (req, res, next) => {
 }
 exports.toggleTodo = async (req, res, next) => {
     const { taskid } = req.body;
-    Todo.findByIdAndUpdate(taskid, body)
+
+    Todo.findByIdAndUpdate(taskid)
     await Todo.findById(taskid, async (err, todo) => {
         if (err) {
             res.send(err);
@@ -34,6 +35,6 @@ exports.toggleTodo = async (req, res, next) => {
             todo.completed = !todo.completed;
             await todo.save()
         }
-        return res.json({ todo })
+        return res.json(todo)
     })
 }

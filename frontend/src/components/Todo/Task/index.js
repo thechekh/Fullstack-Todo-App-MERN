@@ -16,7 +16,7 @@ class Task extends Component {
 
     handleDelete = ev => {
         ev.preventDefault()
-        const { _id } = this.props
+
         const task_id = this.props.task._id
         this.props.deleteTodos(task_id)
     }
@@ -38,7 +38,7 @@ class Task extends Component {
 
         const { _id } = this.props
         const task_id = this.props.task._id
-
+        console.log(_id, task_id);
         this.props.toggleTodos(_id, task_id)
         this.setState({
             completed: !this.state.completed
@@ -47,6 +47,7 @@ class Task extends Component {
     }
 
     getTaskStatus() {
+
         if (this.state.completed) {
             return <img src={icoCompleted}
                 onClick={this.handleToggleStatus}
