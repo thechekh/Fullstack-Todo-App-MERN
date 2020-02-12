@@ -1,6 +1,5 @@
 # MERN Todo App
 
-MERN Todo App
 
 Fullstack MERN Todo App with Login/Registration - Todo Приложение с регистрацией и авторизацией пользователя.
 Технологии
